@@ -1,0 +1,71 @@
+---
+title: 'Parsie Glossary'
+description: 'Understanding key terms and concepts in Parsie'
+---
+
+<Note>
+  This glossary helps you understand the terminology used throughout the Parsie documentation.
+</Note>
+
+## Core Concepts
+
+### Document Processing
+
+- **Document**: Any file (PDF, image, etc.) submitted to Parsie for analysis
+- **Extraction**: The process of obtaining structured data from documents
+- **Confidence Score**: Value between 0-1 indicating extraction accuracy
+
+### API Components
+
+- **API Key**: Authentication token required for accessing Parsie services
+- **Endpoint**: URL that accepts API requests for specific document types
+- **Webhook**: Callback URL where Parsie sends processing results
+
+## Document Types
+
+<CardGroup cols={2}>
+  <Card title="Invoices" icon="file-invoice">
+    Process invoice documents to extract amounts, dates, and vendor details
+  </Card>
+  <Card title="Receipts" icon="receipt">
+    Extract line items, totals, and merchant information from receipts
+  </Card>
+  <Card title="ID Documents" icon="id-card">
+    Process identity documents to extract personal information
+  </Card>
+  <Card title="Custom Documents" icon="file-lines">
+    Configure custom extraction for your specific document types
+  </Card>
+</CardGroup>
+
+## Response Fields
+
+```json
+{
+  "document_id": "string",      // Unique identifier for the processed document
+  "status": "string",          // Current processing status
+  "confidence": number,        // Overall confidence score (0-1)
+  "extracted_data": {
+    // Document-specific extracted fields
+  }
+}
+```
+
+## Common Status Codes
+
+| Status | Description |
+|--------|-------------|
+| `processing` | Document is being analyzed |
+| `completed` | Analysis finished successfully |
+| `failed` | Analysis encountered an error |
+| `queued` | Document waiting to be processed |
+
+<Note>
+  Need more details about a specific term? Check our [API Reference](/api-reference) or [contact support](mailto:support@parsie.com).
+</Note>
+
+## Next Steps
+
+<Card title="Start Using Parsie" icon="rocket">
+  Now that you understand the basics, try [making your first API request](/get-started/make-your-first-request).
+</Card>

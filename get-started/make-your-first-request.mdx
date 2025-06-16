@@ -1,0 +1,63 @@
+---
+title: 'Make your first request'
+description: 'Learn how to create, manage and secure your API keys'
+---
+
+<Note>
+  Your API keys carry many privileges. Be sure to keep them secure! Do not share your API keys in publicly accessible areas such as GitHub or client-side code.
+</Note>
+
+## Creating API Keys
+
+To create a new API key:
+1. Navigate to the [Dashboard](https://dashboard.mintlify.com)
+2. Go to Settings → API Keys
+3. Click "Create New API Key"
+4. Name your key and select the appropriate permissions
+5. Copy and securely store your API key - you won't be able to see it again!
+
+```bash
+# Example of using your API key
+curl -X POST "https://api.mindee.net/v1/parse" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -F "document=@invoice.pdf"
+```
+
+## Managing API Keys
+
+### View Active Keys
+You can view all your active API keys in the Dashboard under Settings → API Keys. For each key, you can see:
+- Key name
+- Creation date
+- Last used date
+- Permissions
+
+### Rotating Keys
+We recommend regularly rotating your API keys as a security best practice:
+1. Create a new API key
+2. Update your applications to use the new key
+3. Delete the old key
+
+### Revoking Keys
+To revoke an API key:
+1. Go to Settings → API Keys
+2. Find the key you want to revoke
+3. Click "Revoke Key"
+4. Confirm the action
+
+<Warning>
+  Revoking an API key immediately invalidates it. Make sure you've updated your applications before revoking old keys.
+</Warning>
+
+## Best Practices
+
+<Card title="Security Tips">
+  - Never share API keys in public repositories
+  - Use environment variables to store keys
+  - Implement key rotation regularly
+  - Grant minimal required permissions
+  - Monitor key usage for unusual activity
+</Card>
+
+## Next Steps
+Ready to start making API requests? Check out our [Make Your First Request](/get-started/make-your-first-request) guide.
